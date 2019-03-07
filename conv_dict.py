@@ -88,9 +88,9 @@ def create_dict(iterations=10000, n=64, m=2, desired_bound=0.05, verbose=False):
 
     if verbose:
         print(t.T.dot(t))
-    t /= np.sqrt(np.sum(np.square(t), axis=0, keepdims=True))
-    print("Dictionary with normalized columns is")
+    print("Dictionary is")
     print(t.T.dot(t))
+    t /= np.sqrt(np.sum(np.square(t), axis=0, keepdims=True))
     c=(np.abs(circ_operation(np.row_stack((t, np.zeros((n-1,m))))).dot(np.ones((2*n-1,1)))))
 
     c[[l*(m+1)*(2*n-1) for l in range(m)]] = 0
